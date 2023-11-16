@@ -36,7 +36,13 @@ const executeEndpointRule = async (rule, logMessage) => {
     modifiedOptions.body = JSON.stringify(modifiedOptions.body);
   }
 
-  return fetch(rule.endpoint, modifiedOptions);
+  const response = await fetch(rule.endpoint, modifiedOptions);
+  if (response.status >= 400) {
+    const body = await response.text();
+    console.error(
+      `Error while executing endpoint rule ${rule.name}: ${response.status} ${response.statusText} ${body}`
+    );
+  }
 };
 
 const executeGraphRule = async (rule, logMessage) => {
