@@ -1,0 +1,31 @@
+{
+  "rules": [
+    {
+      "name": "alerts to rocket-chat",
+      "match": {
+        "contains": "plugins.actions.server-log"
+      },
+      "endpoint": "http://host",
+      "fetchOptions": {
+        "method": "POST",
+        "body": {
+          "foobar": "baz",
+          "message": "$message",
+          "date": "$date"
+        },
+        "headers": {
+          "x-extra-header": "i'm a header!"
+        }
+      }
+    },
+    {
+      "name": "alerts to db",
+      "match": {
+        "contains": "plugins.actions.server-log"
+      },
+      "graph": "http://mu.semte.ch/alerts",
+      "rdfType": "http://semanticweb.cs.vu.nl/2009/11/sem/Event",
+      "prefix": "http://mu.semte.ch/vocabularies/ext/"
+    }
+  ]
+}

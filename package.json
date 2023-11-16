@@ -1,0 +1,24 @@
+{
+  "name": "log-alert-service",
+  "version": "0.0.1",
+  "description": "service that watches a syslog stream for log entries and sends alerts to different channels when necessary",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "rahien",
+  "license": "MIT",
+  "dependencies": {
+    "@lblod/mu-auth-sudo": "^0.6.1",
+    "body-parser": "^1.19.0",
+    "cron": "^1.8.2",
+    "crypto-js": "^4.0.0",
+    "fs-extra": "^9.0.1",
+    "lodash.groupby": "^4.6.0",
+    "lodash.uniq": "^4.5.0",
+    "moment": "^2.29.1",
+    "rdflib": "^2.1.1",
+    "syslog-server": "^1.0.1",
+    "uuid": "^8.3.1"
+  }
+}
